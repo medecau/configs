@@ -6,7 +6,7 @@ Using this configuration, I can ensure that all my repositories have the same ba
 
 # Managed Resources
 
-- GitHub repositories: These are the primary resources being managed by the configuration. The configuration can create, modify, and delete repositories as needed.
+- GitHub repositories: These are the primary resources being managed by the configuration. The configuration can only modify and delete repositories, and cannot create new ones. To manage a repository with this configuration, it must first be created manually and then imported into the Terraform state.
 
 # Prerequisites
 
@@ -65,12 +65,13 @@ terraform apply
 
 # Known Issues
 
-- Bootstrapping the Terraform state can be tedious, as all resources must be manually imported before they can be managed by Terraform. Refer to the "Deploying the Terraform Configuration" section for steps to import resources.
-- Manually created resources must be imported into the Terraform state before they can be managed and may appear to be destroyed in the plan until they are imported. Once imported, these resources' details may appear as changed in the plan.
+- Repository resources must be created manually and then imported into the Terraform state before they can be managed with Terraform. Refer to the "Deploying the Terraform Configuration" section for steps to import resources.
+- Manually created resources may appear to be destroyed in the plan until they are imported into the Terraform state. Once imported, these resources' details may appear as changed in the plan.
 
 To mitigate these issues:
 
-- Keep the configuration up to date to avoid importing many resources at once or manually creating or destroying them.
+- Avoid manually modifying or destroying resources.
+- Import new resources into the Terraform state as soon as they are created.
 - Pay attention to Terraform's plan and be mindful of its proposed changes.
 
 
