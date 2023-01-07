@@ -55,6 +55,12 @@ variable "repo_config" {
       topics       = ["github", "medecau"]
       has_issues   = null
     }
+    "configs" = {
+      description  = "Terraform configuration files for my github repos"
+      homepage_url = null
+      topics       = ["terraform", "github", "configuration"]
+      has_issues   = null
+    }
     "sched2" = {
       description  = "Event scheduler 2"
       homepage_url = "https://medecau.github.io/sched2/"
